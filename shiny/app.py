@@ -27,7 +27,7 @@ from sklearn.metrics import (
 import pickle
 
 # loading the model
-logit_model = pd.read_pickle('../models/logit_model_full.pkl')
+# logit_model = pd.read_pickle('../models/logit_model_full.pkl')
 
 # UI section starts from here 
 app_ui = ui.page_fluid(
