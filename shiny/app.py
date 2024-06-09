@@ -25,6 +25,7 @@ from sklearn.metrics import (
     classification_report
 )
 import pickle
+await micropip.install("scipy")
 
 # read in pickle file from github
 url_1 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/best_model.pkl'
