@@ -3,6 +3,7 @@ from shinyswatch import theme
 import numpy as np
 import pandas as pd
 import seaborn as sns
+import requests
 import matplotlib.pyplot as plt
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
@@ -25,16 +26,31 @@ from sklearn.metrics import (
 )
 import pickle
 
+# read in pickle file from github
+url_1 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/best_model.pkl'
+response = requests.get(url_1)
+best_model = pickle.loads(response.content)
+
+url_2 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/preprocessor.pkl'
+response = requests.get(url_2)
+preprocessor = pickle.loads(response.content)
+
+url_3 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/scaler.pkl'
+response = requests.get(url_3)
+standard_scaler = pickle.loads(response.content)
+
+
+
 # Load the model
-model_path = "../models/best_model.pkl"
-with open(model_path, 'rb') as file:
-    best_model = pickle.load(file)
+# model_path = "../models/best_model.pkl"
+# with open(model_path, 'rb') as file:
+#     best_model = pickle.load(file)
 
-with open('../models/preprocessor.pkl', 'rb') as file:
-    preprocessor = pickle.load(file)
+# with open('../models/preprocessor.pkl', 'rb') as file:
+#     preprocessor = pickle.load(file)
 
-with open('../models/scaler.pkl', 'rb') as file:
-    standard_scaler = pickle.load(file)
+# with open('../models/scaler.pkl', 'rb') as file:
+#     standard_scaler = pickle.load(file)
 
 # Define the pipeline
 pipeline = Pipeline(steps=[
