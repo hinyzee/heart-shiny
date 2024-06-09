@@ -5,6 +5,7 @@ import pandas as pd
 import seaborn as sns
 import requests
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 from sklearn.linear_model import LogisticRegression
@@ -25,7 +26,13 @@ from sklearn.metrics import (
     classification_report
 )
 import pickle
-!pip install scipy
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install("scipy")
 
 # read in pickle file from github
 url_1 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/best_model.pkl'
