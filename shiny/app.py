@@ -1,6 +1,7 @@
 import micropip
 
 micropip.install("scipy")
+micropip.install("sklearn")
 
 from shiny import App, render, ui, reactive
 from shinyswatch import theme
