@@ -1,3 +1,7 @@
+import micropip
+
+micropip.install("scipy")
+
 from shiny import App, render, ui, reactive
 from shinyswatch import theme
 import numpy as np
@@ -26,13 +30,6 @@ from sklearn.metrics import (
     classification_report
 )
 import pickle
-import subprocess
-import sys
-
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-install("scipy")
 
 # read in pickle file from github
 url_1 = 'https://raw.githubusercontent.com/hinyzee/heart-shiny/main/models/best_model.pkl'
