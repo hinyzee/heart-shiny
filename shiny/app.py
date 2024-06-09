@@ -112,7 +112,7 @@ app_ui = ui.page_fluid(
           # plot a distribution plot of the risk score
             #ui.output_plot("risk_score_plot"),
           # insert an image
-            ui.output_image("risk_score_plot", width = "60%", height = "30%")              
+            # ui.output_image("risk_score_plot", width = "60%", height = "30%")              
           )
     ),
 )
@@ -123,15 +123,14 @@ def server(input, output, session):
     @render.text("txt")
     def txt():
         return "Your risk score for CVD is 64.3"
-    @render.image("risk_score_plot")
-    def risk_score_plot():
-        from pathlib import Path
+    # @render.image("risk_score_plot")
+    # def risk_score_plot():
+    #     from pathlib import Path
 
-        dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "output.png"), 
-                        "width": "100%", "height": "100%"}
-        return img
-    s
+    #     dir = Path(__file__).resolve().parent
+    #     img: ImgData = {"src": str(dir / "output.png"), 
+    #                     "width": "100%", "height": "100%"}
+    #     return img
 
         
 
